@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  django-app-on-azure:
+    user: "${UID}:${GID}"
+    build:
+      context: .
+    image: "myacrtest123.azurecr.io/django-app-on-azure:v1"
+    container_name: django-app-on-azure
+    restart: on-failure:5
+    # networks:
+    #   - perseus-net
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    # volumes:
+    #   - /home/kokleong/projects/app_on_azure/django_app_on_azure:/app
+    read_only: true
+    security_opt:
+      - "no-new-privileges:true"
+    pids_limit: 100
+    cpu_shares: 2048
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 300M
+        reservations:
+          memory: 150M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "http://localhost:8000"]
+      interval: 30m
+      timeout: 10s
+      retries: 3
+      start_period: 1m
+    # depends_on:
+    #   - perseus-db-v2-sectest
+
+# networks:
+#   perseus-net:
+#     external: true
