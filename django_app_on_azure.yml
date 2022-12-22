@@ -5,7 +5,7 @@ services:
     user: "${UID}:${GID}"
     build:
       context: .
-    image: "myacrtest123.azurecr.io/django-app-on-azure:v1"
+    image: "django-app-on-azure:v1"
     container_name: django-app-on-azure
     restart: on-failure:5
     # networks:
