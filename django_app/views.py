@@ -4,4 +4,4 @@ from decouple import config
 
 # Create your views here.
 def main(request):
-    return HttpResponse(f"Hello. {config("CLOUD_OR_LOCAL_DOCKER")}")
+    return HttpResponse(f"Hello. {config('CLOUD_OR_LOCAL_DOCKER')}")
