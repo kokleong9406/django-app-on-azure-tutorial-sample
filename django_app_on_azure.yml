@@ -14,8 +14,8 @@ services:
       - "8000:8000"
     env_file:
       - .env
-    # volumes:
-    #   - /home/kokleong/projects/app_on_azure/django_app_on_azure:/app
+    volumes:
+      - /home/kokleong/projects/app_on_azure/django_app_on_azure:/app/test
     read_only: true
     security_opt:
       - "no-new-privileges:true"
