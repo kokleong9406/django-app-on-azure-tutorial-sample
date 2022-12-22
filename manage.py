@@ -23,7 +23,7 @@ def main():
 
     elif CLOUD_OR_LOCAL_DOCKER == "CLOUD":
         """Run administrative tasks."""
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_app_on_azure.settings')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_app_on_azure.cloud_settings')
         try:
             from django.core.management import execute_from_command_line
         except ImportError as exc:

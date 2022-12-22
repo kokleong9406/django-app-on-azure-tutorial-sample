@@ -30,8 +30,8 @@ properties:
   customDomainVerificationId: 8AAB8820DF7ED71C1A6D7F47A318C61937D70236479E4DED034E3310265ECF41
   environmentId: /subscriptions/3f0f20e7-c07c-412a-a061-938a6b3d1830/resourceGroups/MyResourceGroup/providers/Microsoft.App/managedEnvironments/django-app-on-azure-env
   eventStreamEndpoint: https://eastasia.azurecontainerapps.dev/subscriptions/3f0f20e7-c07c-412a-a061-938a6b3d1830/resourceGroups/MyResourceGroup/containerApps/django-app-on-azure/eventstream
-  latestRevisionFqdn: django-app-on-azure--gy4y4ke.icysky-ce7d1e84.eastasia.azurecontainerapps.io
-  latestRevisionName: django-app-on-azure--gy4y4ke
+  latestRevisionFqdn: django-app-on-azure--3ky03n5.icysky-ce7d1e84.eastasia.azurecontainerapps.io
+  latestRevisionName: django-app-on-azure--3ky03n5
   managedEnvironmentId: /subscriptions/3f0f20e7-c07c-412a-a061-938a6b3d1830/resourceGroups/MyResourceGroup/providers/Microsoft.App/managedEnvironments/django-app-on-azure-env
   outboundIpAddresses:
   - 20.24.249.182
@@ -49,16 +49,17 @@ properties:
         value: demoadmin
       - name: AZURE_POSTGRES_PASSWORD
         value: demoadmin12345
-      image: myacrtest123.azurecr.io/django-app-on-azure:9bead8b1c2943a0a9d34dc5dfa7cbc742054d654
+      - name: CLOUD_OR_LOCAL_DOCKER
+        value: CLOUD
+      image: myacrtest123.azurecr.io/django-app-on-azure:628b7f5ce3db4b2a56f8cb24b45f81617d29b2a8
       name: django-app-on-azure
-      volumeMounts:
-      - volumeName: django-app-on-azure-volume
-        mountPath: /app/volume-share
-      probes: []
       resources:
         cpu: 0.5
         ephemeralStorage: 1Gi
         memory: 1Gi
+      volumeMounts:
+      - mountPath: /app/volume-share
+        volumeName: django-app-on-azure-volume
     initContainers: null
     revisionSuffix: ''
     scale:
@@ -75,7 +76,7 @@ systemData:
   createdAt: '2022-12-21T13:27:25.0901957'
   createdBy: admin@aresi2r12.onmicrosoft.com
   createdByType: User
-  lastModifiedAt: '2022-12-22T01:54:49.5400188'
-  lastModifiedBy: admin@aresi2r12.onmicrosoft.com
-  lastModifiedByType: User
+  lastModifiedAt: '2022-12-22T06:01:48.0147066'
+  lastModifiedBy: 0fb12769-ce2f-4d50-9083-ba59053cad67
+  lastModifiedByType: Application
 type: Microsoft.App/containerApps
