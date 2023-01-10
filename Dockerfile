@@ -13,7 +13,11 @@ ENV PYTHONUNBUFFERED=1
 
 # Dependencies for python-ldap (based on openLDAP) and psycopg2
 RUN apt-get update && apt-get upgrade -y && apt-get install -y python-dev libldap2-dev libsasl2-dev libssl-dev libpq-dev build-essential curl && \
-    apt-get install -y nano
+    apt-get install -y nano && \
+    echo "Installing Azure CLI" && \
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+
 
 # Install pip requirements.txt
 COPY requirements.txt .
